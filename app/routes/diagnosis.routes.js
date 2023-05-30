@@ -19,21 +19,20 @@ module.exports = function (app) {
 
 
     app.get("/api/newDiagnosis", (req, res) => {
-        console.log(req.body.symptoms)
         login()
             .then(token => {
                 axios.get(symptomsBaseUrl + "diagnosis", {
                     params: {
                         token: token,
                         language: 'en-gb',
-                        symptoms: JSON.stringify(req.body.symptoms),
-                        gender: req.body.gender,
-                        year_of_birth: req.body.yearOfBirth
+                        symptoms: req.query.symptoms,
+                        gender: req.query.gender,
+                        year_of_birth: req.query.yearOfBirth
                     },
                 })
                     .then(diagnosisResponse => {
                         const diagnosisData = diagnosisResponse.data;
-                        controller.storeDiagnosis(diagnosisData, req.body.userId);
+                        controller.storeDiagnosis(diagnosisData, req.query.userId);
                         res.json(diagnosisData);
                     })
                     .catch(error => {

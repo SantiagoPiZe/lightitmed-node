@@ -26,7 +26,6 @@ module.exports = function (app) {
                     }
                 })
                     .then(symptomsResponse => {
-                        console.log(symptomsResponse)
                         const symptomsData = symptomsResponse.data;
                         res.json(symptomsData);
                     })
