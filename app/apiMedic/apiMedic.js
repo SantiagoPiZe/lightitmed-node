@@ -8,7 +8,7 @@ async function login() {
     const uri = 'https://sandbox-authservice.priaid.ch/login';
     const format = 'json';
 
-    // Calculate the HMACMD5 hash value
+    //HMACMD5 hash value
     const hash = crypto.createHmac('md5', secretKey)
         .update(uri)
         .digest('base64');
