@@ -5,6 +5,7 @@ const app = express();
 
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+require('./app/routes/symptoms.routes')(app);
 
 var corsOptions = {
   origin: "http://localhost:8081"
