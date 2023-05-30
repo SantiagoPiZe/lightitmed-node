@@ -16,6 +16,8 @@ exports.signup = (req, res) => {
     gender: req.body.gender,
     dateOfBirth: req.body.dateOfBirth,
     password: bcrypt.hashSync(req.body.password, 8)
+  }).then( user => {
+    return res.status(200).send()
   })
     .catch(err => {
       res.status(500).send({ message: err.message });
