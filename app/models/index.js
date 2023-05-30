@@ -27,15 +27,14 @@ db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.diagnosis = require("../models/diagnosis.model.js")(sequelize, Sequelize)
 
-db.user.belongsToMany(db.diagnosis, {
-  through: "user_diagnosis",
-  as: "diagnosis",
-  foreignKey: 'userId',
+db.user.hasMany(db.diagnosis, {
+  foreignKey: "userId",
+  as: "diagnoses",
 });
+
 db.diagnosis.belongsTo(db.user, {
-  through: "user_diagnosis",
+  foreignKey: "userId",
   as: "user",
-  foreignKey: "diagnosisId"
 });
 
 module.exports = db;

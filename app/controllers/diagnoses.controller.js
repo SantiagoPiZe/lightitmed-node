@@ -12,4 +12,7 @@ exports.storeDiagnosis = (diagnoses, userId) => {
             })
         })
     })
+    .catch(error => {
+        console.error('Diagnostic creation failed:', error.message);
+    });
 }
