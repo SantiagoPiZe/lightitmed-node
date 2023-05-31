@@ -36,7 +36,6 @@ module.exports = function (app) {
                         res.json(diagnosisData);
                     })
                     .catch(error => {
-                        console.log(error)
                         console.error('Error occurred while fetching diagnoses:', error.data, " ", error.message);
                         res.status(500).json({ error: 'An error occurred while fetching diagnoses' });
                     });
@@ -46,4 +45,12 @@ module.exports = function (app) {
                 res.status(500).json({ error: 'Login failed' });
             });
     });
+
+    app.get("/api/user/diagnoses", (req, res) => {
+        controller.getUserDiagnoses(req, res)
+    })
+
+    app.get("/api/user/diagnostic", (req, res) => {
+        controller.getDiagnosis(req, res)
+    })
 };
