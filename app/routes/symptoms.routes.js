@@ -14,7 +14,7 @@ module.exports = function (app) {
         next();
     });
 
-    const symptomsBaseUrl = "https://sandbox-healthservice.priaid.ch/";
+    const symptomsBaseUrl = "https://healthservice.priaid.ch/";
 
     app.get("/api/symptoms", (req, res) => {
         login()

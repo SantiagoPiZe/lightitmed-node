@@ -1,11 +1,11 @@
 const axios = require('axios');
 const crypto = require('crypto');
 
-const apiKey = 'santiago.pi.ze@gmail.com';
-const secretKey = 'j3RSp7o6T5Ywq4H8W';
+const apiKey = 'Fi75K_GMAIL_COM_AUT';
+const secretKey = 'm2SEg4a7T3MiFo8t6';
 
 async function login() {
-    const uri = 'https://sandbox-authservice.priaid.ch/login';
+    const uri = 'https://authservice.priaid.ch/login';
     const format = 'json';
 
     //HMACMD5 hash value
