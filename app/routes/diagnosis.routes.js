@@ -32,7 +32,8 @@ module.exports = function (app) {
                 })
                     .then(diagnosisResponse => {
                         const diagnosisData = diagnosisResponse.data;
-                        controller.storeDiagnosis(diagnosisData, req.query.userId);
+                        if(diagnosisData.length !== 0) 
+                            controller.storeDiagnosis(diagnosisData, req.query.userId);
                         res.json(diagnosisData);
                     })
                     .catch(error => {
